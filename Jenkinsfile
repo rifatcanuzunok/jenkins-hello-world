@@ -3,9 +3,16 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo "Success!"'
+                sh 'echo "Build Started!"'
             }
+			
         }
+		stage('Test2')
+		{
+		steps {
+                sh 'echo "Build Started!"'
+            }
+		}
     }
     post {
         always {
