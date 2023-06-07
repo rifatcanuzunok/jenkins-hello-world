@@ -12,6 +12,17 @@ pipeline {
                 sh 'echo "Test2 Started!"'
             }
 		}
+		stage('verify tooling') {
+		    steps {
+                sh '''
+                docker version
+                docker info
+                docker compose version
+                curl --version
+                jq --version
+                '''
+            }
+		}
     }
     post {
         always {
