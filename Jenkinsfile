@@ -12,6 +12,14 @@ pipeline {
                 sh 'echo "Test2 Started!"'
             }
 		}
+		stage("Initialize") {
+            steps {
+                script {
+                    def dockerHome = tool 'docker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
+        }
 		stage('verify tooling') {
 		    steps {
                 sh '''
